@@ -5,12 +5,19 @@ import Search from '../pages/Search/search.vue'
 import Order from '../pages/Order/order.vue'
 import Profile from '../pages/Profile/profile.vue'
 import Login from '../pages/Login/Login.vue'
+import Father from '../components/test/father.vue'
 Vue.use(VueRouter)
 
 export default new VueRouter({
     linkActiveClass: 'footer',
-    mode: 'history',
     routes: [{
+        path: '/',
+        meta: {
+            showFooter: true
+        },
+        component: Msite
+
+    }, {
         name: 'msite',
         path: '/msite',
         meta: {
@@ -42,10 +49,5 @@ export default new VueRouter({
         name: 'login',
         path: '/login',
         component: Login
-    }, {
-        name: 'home',
-        path: '/',
-        redirect: Msite
-
     }]
 })

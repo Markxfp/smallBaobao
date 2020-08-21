@@ -1,4 +1,6 @@
 //ajax请求函数模块
+//返回值为Promise对象
+import axios from 'axios'
 export default function ajax(url, data = {}, type = 'GET') {
     return new Promise((resolve, reject) => {
         let promise;
@@ -15,7 +17,7 @@ export default function ajax(url, data = {}, type = 'GET') {
         } else {
             promise = axios.post(url, data)
         }
-        promise.than(response => {
+        promise.then(response => {
             resolve(response.data);
         }).catch(error => {
             reject(error);

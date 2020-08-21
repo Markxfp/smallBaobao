@@ -1,18 +1,27 @@
 <template>
   <div id="app" v-cloak>
     <router-view></router-view>
+    <p>1{{getaddress}}</p>
     <FooterGuide v-if="$route.meta.showFooter"></FooterGuide>
   </div>
 </template>
 
 <script>
 import FooterGuide from "./components/FooterGuide/FooterGuide.vue";
+import {mapGetters} from 'vuex'
 export default {
+  mounted() {
+     this.$store.dispatch('getAddress')
+    console.log(this.$store.state)
+  },
   data() {
     return {};
   },
   components: { FooterGuide },
-  methods: {}
+  methods: {},
+  computed:{
+    ...mapGetters(['getaddress'])
+  }
 };
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderTop title="首页">
+    <HeaderTop :title="address">
       <div class="header-left" slot="left">
         <i class="iconfont icon-sousuo"></i>
       </div>
@@ -33,6 +33,7 @@ import HeaderTop from "../../components/HeaderTop/HeaderTop.vue";
 import ShopList from "../../components/ShopList/ShopList.vue";
 import Swiper from "swiper";
 import "swiper/dist/css/swiper.min.css";
+import {mapState} from 'vuex'
 export default {
   data() {
     return {
@@ -125,6 +126,9 @@ export default {
   components: {
     HeaderTop,
     ShopList
+  },
+  computed:{
+    ...mapState(['address'])
   }
 };
 </script>
